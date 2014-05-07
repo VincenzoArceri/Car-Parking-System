@@ -6,5 +6,4 @@ public class AverageDisplay extends Display {
 		System.out.println("Media aggiornata: " +  toBeDisplaied);
 		Simulator.Average.setText("" + (double) Math.rint(toBeDisplaied*10000)/10000);
 	}
-
 }

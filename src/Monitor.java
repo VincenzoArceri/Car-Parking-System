@@ -1,5 +1,6 @@
 
 public class Monitor extends Node implements RxCommunication {
+	
 	AverageDisplay averageDisplay;
 	FreeParksDisplay freeParksDisplay;
 	

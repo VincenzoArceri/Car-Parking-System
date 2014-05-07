@@ -20,11 +20,13 @@ public class Detector extends Node implements TxCommunication {
 	}
 	
 	public void enteringCar() {
-		this.set(true);
+		if (processingUnit.freeParkingPlaces > 0)
+			this.set(true);
 	}
 	
-	public void exitingCar() {
-		this.set(false);
+	public void exitingCar() {	
+		if (processingUnit.freeParkingPlaces < 500)
+			this.set(false);
 	}
 
 	@Override

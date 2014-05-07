@@ -1,46 +1,44 @@
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Simulator {
 
-	static Toolkit t = Toolkit.getDefaultToolkit();
-	static Dimension screenSize = t.getScreenSize();
-	static JLabel FreePark; 
-	static JLabel Average;
-	static JLabel Cars;
-	static JLabel Calculate;
-	static Detector detector = new Detector();
-	static Monitor monitor = new Monitor();
-	static ProcessingUnit pu = new ProcessingUnit();
+	public static Toolkit t = Toolkit.getDefaultToolkit();
+	public static Dimension screenSize = t.getScreenSize();
+	public static Detector detector = new Detector();
+	public static Monitor monitor = new Monitor();
+	public static ProcessingUnit processingUnit = new ProcessingUnit();
 	
+	public static JLabel FreePark; 
+	public static JLabel Average;
+	public static JLabel Cars;
+	public static JLabel Calculate;
 	
 	public static void main(String args[]){
 		
-		detector.registerObserver(pu);
-		pu.registerObserver(monitor);
+		detector.registerObserver(processingUnit);
+		processingUnit.registerObserver(monitor);
 		
 		setDetector();
-		setProcUnit("Ciao", 0);
+		setProcessingUnit(0);
 		setDisplay(500, 0);
 	}
 
 	public static void setDetector() {
-		
 		JPanel dx = new JPanel();
 		JPanel sx = new JPanel();
-		JButton Enter = new JButton("Enter");
-		JButton Exit = new JButton("Exit");
+		JButton enter = new JButton("Enter");
+		JButton exit = new JButton("Exit");
 
 		JLabel Message = new JLabel();
 		
 		int width = (int) screenSize.getWidth();
 		int heigth = (int) screenSize.getHeight();
 		
-		Enter.addActionListener(new ActionListener() {
+		enter.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -49,7 +47,7 @@ public class Simulator {
 			
 		});
 			
-		Exit.addActionListener(new ActionListener() {
+		exit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -57,8 +55,8 @@ public class Simulator {
 			}		
 		});
 		
-		dx.add(Exit);
-		sx.add(Enter);
+		dx.add(exit);
+		sx.add(enter);
 		
 		JFrame detector = new JFrame("Detector");
 		Container cont = detector.getContentPane();
@@ -67,7 +65,6 @@ public class Simulator {
 		cont.add(sx, BorderLayout.EAST);
 		
 		dx.setBorder(new TitledBorder("Exit car"));
-
 		sx.setBorder(new TitledBorder("Enter car"));
 		
 		detector.setSize(200, 60);
@@ -76,11 +73,11 @@ public class Simulator {
 		detector.setVisible(true);
 	}
 	
-	private static void setProcUnit(String msg, int cars) {
+	private static void setProcessingUnit(int cars) {
 		int width = (int) screenSize.getWidth();
 		int heigth = (int) screenSize.getHeight();
 		
-		Cars = new JLabel(" " + cars);
+		Cars = new JLabel("" + cars);
 		Calculate = new JLabel("");
 		
 		JFrame ProcUnit = new JFrame("Processing Unit");
@@ -117,6 +114,4 @@ public class Simulator {
 		Display.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Display.setVisible(true);
 	}
-	
-	
 }

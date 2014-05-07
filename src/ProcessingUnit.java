@@ -3,8 +3,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	
 	private Monitor monitor;
 	private int totalCars = 0;
-	private int busyParkingPlaces = 0;
-	private int freeParkingPlaces = 500;
+	public int freeParkingPlaces = 500;
 	
 	@Override
 	public void receive(Object... args) {
@@ -39,11 +38,9 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 		int op = (Integer) args[0];
 
 		if (op == -1) {
-			busyParkingPlaces--;
 			freeParkingPlaces++;
 			this.send(freeParkingPlaces);
 		} else {
-			busyParkingPlaces++;
 			freeParkingPlaces--;
 			totalCars++;
 			Simulator.Cars.setText("" + totalCars);
@@ -53,7 +50,6 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
