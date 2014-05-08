@@ -17,7 +17,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	@Override
 	public void read(Object... args) {
 		System.out.println("Sto preparando il dato da essere processato");
-		this.calculate((Boolean) args[0] ? 1 : -1);		
+		this.calculate((boolean) args[0] ? 1 : -1);		
 	}
 
 	@Override
