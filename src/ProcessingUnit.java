@@ -1,4 +1,6 @@
 
+import javax.swing.border.TitledBorder;
+
 public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub, Average {
 	
 	private Monitor monitor;
@@ -7,7 +9,9 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	
 	@Override
 	public void receive(Object... args) {
+		
 		System.out.println("Ho ricevuto un dato da Detector");
+		Simulator.Calculate.setBorder(new TitledBorder(""));
 		Simulator.Calculate.setText("Calculating...");
 			
 		if ((args.length == 1) && (args[0] instanceof Boolean))
@@ -17,7 +21,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	@Override
 	public void read(Object... args) {
 		System.out.println("Sto preparando il dato da essere processato");
-		this.calculate((boolean) args[0] ? 1 : -1);		
+		this.calculate((Boolean) args[0] ? 1 : -1);		
 	}
 
 	@Override
@@ -44,7 +48,8 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 			freeParkingPlaces--;
 			totalCars++;
 			Simulator.Cars.setText("" + totalCars);
-			this.send(freeParkingPlaces, this.average(totalCars,13));
+			long hoursElapsed = 3 + ((System.currentTimeMillis() - Simulator.initialTime) / 1000) / 60;
+			this.send(freeParkingPlaces, this.average(totalCars, hoursElapsed));
 		}
 		
 		try {

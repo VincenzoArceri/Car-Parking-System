@@ -6,5 +6,4 @@ public class FreeParksDisplay extends Display {
 		System.out.println("Parcheggi liberi aggiornati: " +  (int) toBeDisplaied);
 		Simulator.FreePark.setText("" + (int) toBeDisplaied);
 	}
-
 }

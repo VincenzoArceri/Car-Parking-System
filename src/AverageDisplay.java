@@ -1,4 +1,3 @@
-
 public class AverageDisplay extends Display {
 
 	@Override

@@ -4,9 +4,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/*Commento di prova*/
 public class Simulator {
-
+	
+	public static long initialTime = System.currentTimeMillis();
 	public static Toolkit t = Toolkit.getDefaultToolkit();
 	public static Dimension screenSize = t.getScreenSize();
 	public static Detector detector = new Detector();
