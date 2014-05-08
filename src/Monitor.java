@@ -4,7 +4,8 @@ public class Monitor extends Node implements RxCommunication {
 	AverageDisplay averageDisplay;
 	FreeParksDisplay freeParksDisplay;
 	
-	public Monitor() {
+	public Monitor(String name) {
+		this.nodeName = name;
 		this.averageDisplay = new AverageDisplay();
 		this.freeParksDisplay = new FreeParksDisplay();
 	}

@@ -7,11 +7,13 @@ import java.awt.event.ActionListener;
 public class Simulator {
 	
 	public static long initialTime = System.currentTimeMillis();
+	
 	public static Toolkit t = Toolkit.getDefaultToolkit();
 	public static Dimension screenSize = t.getScreenSize();
-	public static Detector detector = new Detector();
-	public static Monitor monitor = new Monitor();
-	public static ProcessingUnit processingUnit = new ProcessingUnit();
+	
+	public static Detector detector = new Detector("Detector");
+	public static Monitor monitor = new Monitor("Monitor");
+	public static ProcessingUnit processingUnit = new ProcessingUnit("Processing Unit");
 	
 	public static JLabel FreePark; 
 	public static JLabel Average;
@@ -34,8 +36,6 @@ public class Simulator {
 		JButton enter = new JButton("Enter");
 		JButton exit = new JButton("Exit");
 
-		
-		
 		int width = (int) screenSize.getWidth();
 		int heigth = (int) screenSize.getHeight();
 		
@@ -115,7 +115,6 @@ public class Simulator {
 		cont3.setLayout(new GridLayout(2, 1, 10, 10));
 		cont3.add(Average);
 		cont3.add(FreePark);
-
 
 		FreePark.setBorder(new TitledBorder("Free parking places"));
 		Average.setBorder(new TitledBorder("Entering Cars/Hour"));

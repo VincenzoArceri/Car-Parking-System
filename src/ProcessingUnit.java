@@ -7,9 +7,12 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	private int totalCars = 0;
 	public int freeParkingPlaces = 500;
 	
+	public ProcessingUnit(String name) {
+		this.nodeName = name;
+	}
+	
 	@Override
 	public void receive(Object... args) {
-		
 		System.out.println("Ho ricevuto un dato da Detector");
 		Simulator.Calculate.setBorder(new TitledBorder(""));
 		Simulator.Calculate.setText("Calculating...");

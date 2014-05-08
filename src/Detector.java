@@ -1,8 +1,11 @@
 
-
 public class Detector extends Node implements TxCommunication {
 	private final static int maxCars = 500;
 	private ProcessingUnit processingUnit;
+	
+	public Detector(String name) {
+		this.nodeName = name;
+	}
 	
 	@Override
 	public void send(Object... args) {
@@ -23,6 +26,7 @@ public class Detector extends Node implements TxCommunication {
 	public void enteringCar() {
 		if (processingUnit.freeParkingPlaces > 0)
 			this.set(true);
+		
 	}
 	
 	public void exitingCar() {	
