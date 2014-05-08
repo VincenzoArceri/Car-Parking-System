@@ -34,7 +34,7 @@ public class Simulator {
 		JButton enter = new JButton("Enter");
 		JButton exit = new JButton("Exit");
 
-		JLabel Message = new JLabel();
+		
 		
 		int width = (int) screenSize.getWidth();
 		int heigth = (int) screenSize.getHeight();
@@ -61,15 +61,19 @@ public class Simulator {
 		
 		JFrame detector = new JFrame("Detector");
 		Container cont = detector.getContentPane();
-		cont.add(Message, BorderLayout.NORTH);
-		cont.add(dx, BorderLayout.WEST);
-		cont.add(sx, BorderLayout.EAST);
+		
+		cont.setLayout(new GridLayout(1, 2, 10, 10));
+		
+		cont.add(dx);
+		cont.add(sx);
 		
 		dx.setBorder(new TitledBorder("Exit car"));
 		sx.setBorder(new TitledBorder("Enter car"));
 		
-		detector.setSize(200, 60);
-		detector.setLocation(width / 3 - 100, heigth / 3 - 30);
+		// -> posizione finestra "Detector"
+		
+		detector.setSize(200, 100);
+		detector.setLocation(width / 4 - 100, heigth / 3 - 45);
 		detector.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		detector.setVisible(true);
 	}
@@ -83,14 +87,19 @@ public class Simulator {
 		
 		JFrame ProcUnit = new JFrame("Processing Unit");
 		Container cont2 = ProcUnit.getContentPane();
-		cont2.add(Cars, BorderLayout.NORTH);
-		cont2.add(Calculate, BorderLayout.SOUTH);
+		
+		cont2.setLayout(new GridLayout(2, 1, 10, 10));	
+		cont2.add(Cars);
+		cont2.add(Calculate);
 		
 		Cars.setBorder(new TitledBorder("Total cars entered"));
-		Calculate.setBorder(new TitledBorder(""));
+		
+		
+
+		// -> posizione finestra "Processing Unit"
 		
 		ProcUnit.setSize(200, 150);
-		ProcUnit.setLocation(width / 2 - 100, heigth / 2 - 60);
+		ProcUnit.setLocation(width / 2 - 100, heigth / 3 - 45);
 		ProcUnit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ProcUnit.setVisible(true);
 	}
@@ -103,15 +112,18 @@ public class Simulator {
 	  	Average = new JLabel("" + average);
 		JFrame Display = new JFrame("Monitor");
 		Container cont3 = Display.getContentPane();
-		cont3.add(Average, BorderLayout.NORTH);
-		cont3.add(FreePark, BorderLayout.SOUTH);
+		cont3.setLayout(new GridLayout(2, 1, 10, 10));
+		cont3.add(Average);
+		cont3.add(FreePark);
 
 
 		FreePark.setBorder(new TitledBorder("Free parking places"));
 		Average.setBorder(new TitledBorder("Entering Cars/Hour"));
 		
-		Display.setSize(200, 90);
-		Display.setLocation(width * 2 / 3 - 100, heigth / 3 - 40);
+		// -> posizione finestra "Monitor"
+		
+		Display.setSize(200, 120);
+		Display.setLocation(width * 3 / 4 - 100, heigth / 3 - 45);
 		Display.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Display.setVisible(true);
 	}
