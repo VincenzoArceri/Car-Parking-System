@@ -25,7 +25,7 @@ public class Detector extends Node implements TxCommunication {
 	}
 	
 	public void exitingCar() {	
-		if (processingUnit.freeParkingPlaces < 500)
+		if (processingUnit.freeParkingPlaces < maxCars)
 			this.set(false);
 	}
 
