@@ -6,16 +6,16 @@ public class Detector extends Node implements TxCommunication {
 	@Override
 	public void send(Object... args) {
 		System.out.println("Sto inviando un dato all'unità di processo");
-		processingUnit.receive((boolean) args[0]);
+		processingUnit.receive((Boolean) args[0]);
 		
 	}
 
 	@Override
 	public void set(Object... args) {
 		System.out.println("Sto preparando un dato");
-		if ((args.length == 1) && (args[0] instanceof Boolean) && ((boolean) args[0]))
+		if ((args.length == 1) && (args[0] instanceof Boolean) && ((Boolean) args[0]))
 			this.send(true);
-		else if ((args.length == 1) && (args[0] instanceof Boolean) && (!(boolean) args[0]))
+		else if ((args.length == 1) && (args[0] instanceof Boolean) && (!(Boolean) args[0]))
 			this.send(false);
 	}
 	
