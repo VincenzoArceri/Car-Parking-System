@@ -1,4 +1,10 @@
-
+/**
+ * Interfaccia che estende a sua volta l'interfaccia NodeCommunication
+ * e contiene i metodi per interfacciare i 
+ * nodi adibiti solo all'invio di informazioni.
+ * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
+ *
+ */
 public interface TxCommunication extends NodeCommunication {
 	public void send(Object... args);
 	public void set(Object... args);

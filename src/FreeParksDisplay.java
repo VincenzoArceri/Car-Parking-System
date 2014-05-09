@@ -1,4 +1,11 @@
 
+/**
+ * Classe che estende la classe astratta Display,
+ * contiene un metodo updateMe chiamato per aggiornare il numero di
+ * parcheggi liberi del Display.
+ * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
+ *
+ */
 public class FreeParksDisplay extends Display {
 
 	@Override

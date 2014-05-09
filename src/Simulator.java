@@ -4,6 +4,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
+ * La classe Simulator crea un simulatore grafico per il sistema di car parking,
+ * contiene il main del progetto e i metodi per implementare le tre finestre:
+ * Detector, Processing Unit e Monitor.
+ */
+
 public class Simulator {
 	
 	public static long initialTime = System.currentTimeMillis();
@@ -20,6 +27,11 @@ public class Simulator {
 	public static JLabel Cars;
 	public static JLabel Calculate;
 	
+	/**
+	 * 
+	 * Main del progetto: lancia i metodi per la creazione delle finestre per l'interazione grafica.
+	 * 
+	 */	
 	public static void main(String args[]){
 		
 		detector.registerObserver(processingUnit);
@@ -30,6 +42,11 @@ public class Simulator {
 		setDisplay(500, 0);
 	}
 
+	/**
+	 * Finestra Detector per interagire con l'utente che tramite i bottoni "Enter" e "Exit" simula
+	 * l'entrata e l'uscita delle auto dal parcheggio, cattura la pressione dei bottoni
+	 *  e chiama rispettivamente i metodi di detector "enteringCar()" ed "exitingCar()".
+	 */
 	public static void setDetector() {
 		JPanel dx = new JPanel();
 		JPanel sx = new JPanel();
@@ -78,6 +95,11 @@ public class Simulator {
 		detector.setVisible(true);
 	}
 	
+/**
+ * La finestra ProcessingUnit prende in ingresso il numero di macchine all'interno del parcheggio e
+ * comunica che sta eseguendo i calcoli da inviare ai monitor
+ * @param cars inizializzato dal main a 0, verr&agrave cambiato ad ogni ingresso o uscita della macchina.
+ */
 	private static void setProcessingUnit(int cars) {
 		int width = (int) screenSize.getWidth();
 		int heigth = (int) screenSize.getHeight();
@@ -104,6 +126,12 @@ public class Simulator {
 		ProcUnit.setVisible(true);
 	}
 	
+	/**
+	 * Il metodo setDisplay prende in input il numero di parcheggi disponibili 
+	 * e la media dell'entrata di auto/ora, calcolati dalla processing unit.
+	 * @param freePark il numero di posti auto disponibili
+	 * @param average la media dell'entrata di auto ad ogni ora
+	 */
 	private static void setDisplay(int freePark, double average) {
 		int width = (int) screenSize.getWidth();
 		int heigth = (int) screenSize.getHeight();
