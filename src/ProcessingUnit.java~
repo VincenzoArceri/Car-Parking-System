@@ -1,11 +1,10 @@
 
 /**
+ * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
+ * 
  * ProcessingUnit estende la classe astratta node e implementa l'interfaccia TxRxComunication per 
  * ricevere e inviare dati, le interfacce Add, Sub, Averege per produrre i calcoli.
  * La classe riceve i dati di detector, produce i calcoli e li invia ai display.
- * 
- * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
- * 
  */
 
 import javax.swing.border.TitledBorder;

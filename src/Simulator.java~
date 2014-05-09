@@ -5,11 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
  * La classe Simulator crea un simulatore grafico per il sistema di car parking,
  * contiene il main del progetto e i metodi per implementare le tre finestre:
  * Detector, Processing Unit e Monitor.
- *
- * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
  */
 
 public class Simulator {
