@@ -5,29 +5,29 @@
  * Il detector segnala l'entrata e l'uscita di auto alla processing unit.
  * 
  * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
- *
  */
 
 public class Detector extends Node implements TxCommunication {
 	
 	/**
-	 * il limite massimo di macchine per il parcheggio
+	 * Il limite massimo di macchine per il parcheggio
 	 */
 	private final static int maxCars = 500;
 	private ProcessingUnit processingUnit;
 	
 	/**
-	 * il costruttore della classe
-	 * @param name il nome identificativo del nodo
+	 * Il costruttore della classe
+	 * @param name: il nome identificativo del nodo
 	 */
 	public Detector(String name) {
 		this.nodeName = name;
 	}
 	
 	/**
-	 * Metodo che chiama il metodo pubblico receive di processing unit, per l'invio
+	 * Metodo che chiama il metodo pubblico receive di ProcessingUnit, per l'invio
 	 * di dati all'unit&agrave di calcolo.
-	 * @param args il dato da inviare all'unit&agrave di processo.
+	 * 
+	 * @param args: il dato da inviare all'unit&agrave di processo.
 	 */
 	
 	@Override
@@ -39,8 +39,9 @@ public class Detector extends Node implements TxCommunication {
 
 	/**
 	 * Metodo per preparazione del dato da inviare con send(Object.. args). Se l'agomento in ingresso &egrave true, 
-	 * invia true, se &egrave false, invia false.
-	 * @param Object... args dato da inviare alla processing unit
+	 * invia true (segnala l'entrata di un'auto), se &egrave false, invia false (segnala l'uscita di un'auto).
+	 * 
+	 * @param args: dato da inviare alla processing unit
 	 */
 	
 	@Override

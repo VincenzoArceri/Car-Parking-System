@@ -116,8 +116,6 @@ public class Simulator {
 		cont2.add(Calculate);
 		
 		Cars.setBorder(new TitledBorder("Total cars entered"));
-		
-		
 
 		// -> posizione finestra "Processing Unit"
 		
