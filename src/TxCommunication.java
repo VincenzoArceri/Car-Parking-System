@@ -1,6 +1,6 @@
 /**
- * Interfaccia che estende a sua volta l'interfaccia NodeCommunication
- * e contiene i metodi per interfacciare i 
+ * Interfaccia che estende a sua volta NodeCommunication
+ * e contiene i metodi per i 
  * nodi adibiti solo all'invio di informazioni.
  * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
  *
