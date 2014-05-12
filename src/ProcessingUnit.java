@@ -17,12 +17,14 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	
 	public boolean isWireless;
 	
+	public long hoursElapsed = 1;
+	
 	private Monitor monitor;
 	
 	/**
 	 * Totale macchine entrate da quando il sistema è attivo
 	 */
-	private int totalCars = 0;
+	public int totalCars = 0;
 	
 	/**
 	 * Totale dei posti liberi, inizialmente sono 500
@@ -46,8 +48,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	@Override
 	public void receive(Object... args) {
 		System.out.println("Ho ricevuto un dato da Detector");
-		Simulator.Calculate.setBorder(new TitledBorder(""));
-		Simulator.Calculate.setText("Calculating...");
+
 			
 		if ((args.length == 1) && (args[0] instanceof Boolean))
 			this.read(args[0]);
@@ -110,7 +111,6 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 			freeParkingPlaces--;
 			totalCars++;
 			Simulator.Cars.setText("" + totalCars);
-			long hoursElapsed = 1 + ((System.currentTimeMillis() - Simulator.initialTime) / 1000) / 60;
 			this.send(freeParkingPlaces, this.average(totalCars, hoursElapsed));
 		}
 		

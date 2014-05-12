@@ -51,8 +51,15 @@ public class Simulator {
 	public static void setDetector() {
 		JPanel dx = new JPanel();
 		JPanel sx = new JPanel();
+		JPanel conthour = new JPanel();
+		JPanel contUp = new JPanel();
+		JPanel contCenter = new JPanel();
+
 		JButton enter = new JButton("Enter");
 		JButton exit = new JButton("Exit");
+		JButton addHour = new JButton("Add an hour");
+		
+		
 
 		int width = (int) screenSize.getWidth();
 		int heigth = (int) screenSize.getHeight();
@@ -74,23 +81,46 @@ public class Simulator {
 			}		
 		});
 		
+		addHour.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				processingUnit.hoursElapsed += 1;
+				Calculate.setText("" + processingUnit.hoursElapsed);
+				double average = processingUnit.average(processingUnit.totalCars, processingUnit.hoursElapsed);
+				monitor.read(Integer.parseInt(FreePark.getText()), average);
+			}		
+		});
+		
+				
 		dx.add(exit);
 		sx.add(enter);
+		conthour.add(addHour);
+
 		
 		JFrame detector = new JFrame("Detector");
-		Container cont = detector.getContentPane();
 		
-		cont.setLayout(new GridLayout(1, 2, 10, 10));
+		Container body = detector.getContentPane();
 		
-		cont.add(dx);
-		cont.add(sx);
+		
+		body.setLayout(new GridLayout(2, 1, 10, 10));
+		body.add(contUp);
+		body.add(contCenter);
+
+		contUp.setLayout(new GridLayout(1, 2, 10, 10));
+		contUp.add(dx);
+		contUp.add(sx);
+		contCenter.setLayout(new GridLayout(1, 1, 10, 10));
+		contCenter.add(conthour);
+	
 		
 		dx.setBorder(new TitledBorder("Exit car"));
 		sx.setBorder(new TitledBorder("Enter car"));
+		conthour.setBorder(new TitledBorder("Exit car"));
 		
 		// -> posizione finestra "Detector"
 		
-		detector.setSize(200, 100);
+		detector.setSize(200, 150);
 		detector.setLocation(width / 4 - 100, heigth / 3 - 45);
 		detector.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		detector.setVisible(true);
@@ -107,7 +137,8 @@ public class Simulator {
 		
 		Cars = new JLabel("" + cars);
 		Calculate = new JLabel("");
-		
+		Calculate.setBorder(new TitledBorder("Hours elapsed"));
+		Calculate.setText("" + 0);
 		JFrame ProcUnit = new JFrame("Processing Unit");
 		Container cont2 = ProcUnit.getContentPane();
 		
