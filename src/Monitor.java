@@ -1,19 +1,23 @@
 /**
  * La classe Monitor estende la classe astratta Node e implementa l'interfaccia
  * RxCommunication per la sola ricezione di dati.
+ * 
  * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
- *
  */
 public class Monitor extends Node implements RxCommunication {
 	
-	AverageDisplay averageDisplay;
-	FreeParksDisplay freeParksDisplay;
+	private AverageDisplay averageDisplay;
+	private FreeParksDisplay freeParksDisplay;
+	public boolean isWireless;
+	
 	/**
 	 * Il costruttore della classe.
+	 * @param isWireless: indica se il nodo comunica wireless
 	 * @param name: il nome identificativo del nodo.
 	 */
-	public Monitor(String name) {
+	public Monitor(String name, boolean isWireless) {
 		this.nodeName = name;
+		this.isWireless = isWireless;
 		this.averageDisplay = new AverageDisplay();
 		this.freeParksDisplay = new FreeParksDisplay();
 	}

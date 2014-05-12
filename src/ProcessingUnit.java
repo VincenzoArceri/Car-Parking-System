@@ -11,6 +11,12 @@ import javax.swing.border.TitledBorder;
 
 public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub, Average {
 	
+	/**
+	 * Indica se ProcessingUnit supporta una connessione wireless
+	 */
+	
+	public boolean isWireless;
+	
 	private Monitor monitor;
 	
 	/**
@@ -21,14 +27,15 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	/**
 	 * Totale dei posti liberi, inizialmente sono 500
 	 */
-	public int freeParkingPlaces = 500;
+	public int freeParkingPlaces = Detector.maxCars;
 	
 	/**
 	 * Il costruttore della classe ProcessingUnit.
 	 * @param name: nome identificativo dell'oggetto ProcessingUnit 
 	 */
-	public ProcessingUnit(String name) {
+	public ProcessingUnit(String name, boolean isWireless) {
 		this.nodeName = name;
+		this.isWireless = isWireless;
 	}
 	
 	/**
@@ -67,7 +74,9 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	@Override
 	public void send(Object... args) {
 		System.out.println("Sto inviando dei dati al monitor");
-		monitor.receive(args);
+		
+		if ((monitor.isWireless) && (this.isWireless))
+			monitor.receive(args);
 	}
 
 	/**
@@ -101,7 +110,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 			freeParkingPlaces--;
 			totalCars++;
 			Simulator.Cars.setText("" + totalCars);
-			long hoursElapsed = 3 + ((System.currentTimeMillis() - Simulator.initialTime) / 1000) / 60;
+			long hoursElapsed = 1 + ((System.currentTimeMillis() - Simulator.initialTime) / 1000) / 60;
 			this.send(freeParkingPlaces, this.average(totalCars, hoursElapsed));
 		}
 		

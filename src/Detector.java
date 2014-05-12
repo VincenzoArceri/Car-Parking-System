@@ -12,15 +12,17 @@ public class Detector extends Node implements TxCommunication {
 	/**
 	 * Il limite massimo di macchine per il parcheggio
 	 */
-	private final static int maxCars = 500;
+	public final static int maxCars = 500;
 	private ProcessingUnit processingUnit;
+	public boolean isWireless = false;
 	
 	/**
 	 * Il costruttore della classe
 	 * @param name: il nome identificativo del nodo
 	 */
-	public Detector(String name) {
+	public Detector(String name, boolean isWireless) {
 		this.nodeName = name;
+		this.isWireless = isWireless;
 	}
 	
 	/**
@@ -33,8 +35,9 @@ public class Detector extends Node implements TxCommunication {
 	@Override
 	public void send(Object... args) {
 		System.out.println("Sto inviando un dato all'unità di processo");
-		processingUnit.receive((Boolean) args[0]);
 		
+		if ((processingUnit.isWireless) && (this.isWireless))
+			processingUnit.receive((Boolean) args[0]);
 	}
 
 	/**

@@ -19,9 +19,9 @@ public class Simulator {
 	public static Toolkit t = Toolkit.getDefaultToolkit();
 	public static Dimension screenSize = t.getScreenSize();
 	
-	public static Detector detector = new Detector("Detector");
-	public static Monitor monitor = new Monitor("Monitor");
-	public static ProcessingUnit processingUnit = new ProcessingUnit("Processing Unit");
+	public static Detector detector = new Detector("Detector", true);
+	public static Monitor monitor = new Monitor("Monitor", true);
+	public static ProcessingUnit processingUnit = new ProcessingUnit("Processing Unit", true);
 	
 	public static JLabel FreePark; 
 	public static JLabel Average;
@@ -40,7 +40,7 @@ public class Simulator {
 		
 		setDetector();
 		setProcessingUnit(0);
-		setDisplay(500, 0);
+		setDisplay(Detector.maxCars, 0);
 	}
 
 	/**
