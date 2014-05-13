@@ -55,7 +55,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	 */
 	@Override
 	public void receive(Object... args) {
-		System.out.println("Ho ricevuto un dato da Detector");
+		System.out.println("ProcessingUnit => Ho ricevuto un dato da Detector");
 
 			
 		if ((args.length == 1) && (args[0] instanceof Boolean))
@@ -70,7 +70,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	 */
 	@Override
 	public void read(Object... args) {
-		System.out.println("Sto preparando il dato da essere processato");
+		System.out.println("ProcessingUnit => Sto preparando il dato da essere processato");
 		this.calculate((Boolean) args[0] ? 1 : -1);		
 	}
 
@@ -82,7 +82,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	 */
 	@Override
 	public void send(Object... args) {
-		System.out.println("Sto inviando dei dati al monitor");
+		System.out.println("ProcessingUnit => Sto inviando dei dati al monitor");
 		
 		if ((monitor.isWireless) && (this.isWireless))
 			monitor.receive(args);
@@ -96,7 +96,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	 */
 	@Override
 	public void set(Object... args) {
-		System.out.println("Sto preparando dei dati per essere inviati");
+		System.out.println("ProcessingUnit => Sto preparando dei dati per essere inviati");
 		
 		if (args.length == 2)
 			this.send(args);	
@@ -164,7 +164,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	 */
 	@Override
 	public void registerObserver(Object who) {
-		System.out.println("Monitor registrata");
+		System.out.println("ProcessingUnit => Monitor registrato");
 		if (who instanceof Monitor)
 			monitor = (Monitor) who;		
 	}
@@ -176,7 +176,7 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 	 */
 	@Override
 	public void unregisterObserver(Object who) {
-		System.out.println("Monitor deregistrata");
+		System.out.println("ProcessingUnit => Monitor deregistrato");
 		if (who instanceof ProcessingUnit)
 			monitor = null;	
 	}

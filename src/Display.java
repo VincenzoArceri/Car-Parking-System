@@ -1,8 +1,7 @@
 /**
  * Classe astratta che contiene il metodo updateMe, 
- * implementato diversamente dai display che stampano
- * la media e quelli che stampano il numero di posti auto
- * disponibili.
+ * implementato concretamente dai dai diversi display, che nel nostro caso visualizzano
+ * la media oraria di automobili entrate e il numero di posti auto disponibili.
  * 
  * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
  */

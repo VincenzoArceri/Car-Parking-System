@@ -2,7 +2,7 @@
 /**
  * La classe Detector estende la classe astratta Node e implementa
  * l'interfaccia TxCommunication. 
- * Il detector segnala l'entrata e l'uscita di auto alla processing unit.
+ * Il detector segnala l'entrata e l'uscita di auto alla Processing Unit.
  * 
  * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
  */
@@ -40,7 +40,7 @@ public class Detector extends Node implements TxCommunication {
 	
 	@Override
 	public void send(Object... args) {
-		System.out.println("Sto inviando un dato all'unità di processo");
+		System.out.println("Detector => Sto inviando un dato all'unità di processo");
 		
 		if ((processingUnit.isWireless) && (this.isWireless))
 			processingUnit.receive((Boolean) args[0]);
@@ -55,7 +55,7 @@ public class Detector extends Node implements TxCommunication {
 	
 	@Override
 	public void set(Object... args) {
-		System.out.println("Sto preparando un dato");
+		System.out.println("Detector => Sto preparando un dato");
 		if ((args.length == 1) && (args[0] instanceof Boolean) && ((Boolean) args[0]))
 			this.send(true);
 		else if ((args.length == 1) && (args[0] instanceof Boolean) && (!(Boolean) args[0]))
@@ -86,7 +86,7 @@ public class Detector extends Node implements TxCommunication {
 	 */
 	@Override
 	public void registerObserver(Object who) {
-		System.out.println("ProcessingUnit registrata");
+		System.out.println("Detector => ProcessingUnit registrata");
 		if (who instanceof ProcessingUnit)
 			processingUnit = (ProcessingUnit) who;		
 	}
@@ -96,7 +96,7 @@ public class Detector extends Node implements TxCommunication {
 	 */
 	@Override
 	public void unregisterObserver(Object who) {
-		System.out.println("ProcessingUnit deregistrata");
+		System.out.println("Detector => ProcessingUnit deregistrata");
 		if (who instanceof ProcessingUnit)
 			processingUnit = null;	
 	}

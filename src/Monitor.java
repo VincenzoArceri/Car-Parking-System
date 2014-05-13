@@ -35,7 +35,7 @@ public class Monitor extends Node implements RxCommunication {
 	 */
 	@Override
 	public void receive(Object... args) {
-		System.out.println("Ho ricevuto il dato");
+		System.out.println("Monitor => Ho ricevuto il dato");
 		this.read(args);
 	}
 	
