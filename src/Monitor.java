@@ -8,6 +8,12 @@ public class Monitor extends Node implements RxCommunication {
 	
 	private AverageDisplay averageDisplay;
 	private FreeParksDisplay freeParksDisplay;
+	
+	/**
+	 * Variabile booleana utilizzata per indicare la tipologia del canale di comunicazione:
+	 * true indica una connessione di tipo wireless
+	 * false indica una connessione cablata
+	 */
 	public boolean isWireless;
 	
 	/**

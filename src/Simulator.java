@@ -59,8 +59,6 @@ public class Simulator {
 		JButton exit = new JButton("Exit");
 		JButton addHour = new JButton("Add an hour");
 		
-		
-
 		int width = (int) screenSize.getWidth();
 		int heigth = (int) screenSize.getHeight();
 		
@@ -96,13 +94,11 @@ public class Simulator {
 		dx.add(exit);
 		sx.add(enter);
 		conthour.add(addHour);
-
 		
 		JFrame detector = new JFrame("Detector");
 		
 		Container body = detector.getContentPane();
-		
-		
+			
 		body.setLayout(new GridLayout(2, 1, 10, 10));
 		body.add(contUp);
 		body.add(contCenter);
@@ -112,11 +108,10 @@ public class Simulator {
 		contUp.add(sx);
 		contCenter.setLayout(new GridLayout(1, 1, 10, 10));
 		contCenter.add(conthour);
-	
-		
+			
 		dx.setBorder(new TitledBorder("Exit car"));
 		sx.setBorder(new TitledBorder("Enter car"));
-		conthour.setBorder(new TitledBorder("Exit car"));
+		conthour.setBorder(new TitledBorder("Lets spend an hour"));
 		
 		// -> posizione finestra "Detector"
 		
@@ -138,7 +133,7 @@ public class Simulator {
 		Cars = new JLabel("" + cars);
 		Calculate = new JLabel("");
 		Calculate.setBorder(new TitledBorder("Hours elapsed"));
-		Calculate.setText("" + 0);
+		Calculate.setText("" + 1);
 		JFrame ProcUnit = new JFrame("Processing Unit");
 		Container cont2 = ProcUnit.getContentPane();
 		

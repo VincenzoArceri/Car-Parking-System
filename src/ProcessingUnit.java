@@ -7,17 +7,25 @@
  * @author Vincenzo Arceri, Matteo Calabria, Pietro Musoni, Carlo Tacchella
  */
 
-import javax.swing.border.TitledBorder;
-
 public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub, Average {
 	
 	/**
-	 * Indica se ProcessingUnit supporta una connessione wireless
+	 * Variabile booleana utilizzata per indicare la tipologia del canale di comunicazione:
+	 * true indica una connessione di tipo wireless
+	 * false indica una connessione cablata
 	 */
 	
 	public boolean isWireless;
 	
+	/**
+	 * Indica le ore trascorse dall'avvio del sistema
+	 */
+	
 	public long hoursElapsed = 1;
+	
+	/**
+	 * Oggetto privato utilizzato come referenza con la classe Monitor con cui comunicare
+	 */
 	
 	private Monitor monitor;
 	

@@ -14,6 +14,12 @@ public class Detector extends Node implements TxCommunication {
 	 */
 	public final static int maxCars = 500;
 	private ProcessingUnit processingUnit;
+	
+	/**
+	 * Variabile booleana utilizzata per indicare la tipologia del canale di comunicazione:
+	 * true indica una connessione di tipo wireless
+	 * false indica una connessione cablata
+	 */
 	public boolean isWireless = false;
 	
 	/**
