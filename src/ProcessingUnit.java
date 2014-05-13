@@ -113,13 +113,20 @@ public class ProcessingUnit extends Node implements TxRxCommunication, Add, Sub,
 		int op = (Integer) args[0];
 
 		if (op == -1) {
-			freeParkingPlaces++;
+			//è uscita una macchina
+			//freeParkingPlaces++;
+			freeParkingPlaces = (int) add(freeParkingPlaces, 1);
 			this.send(freeParkingPlaces);
 		} else {
-			freeParkingPlaces--;
-			totalCars++;
+			//è entrata una macchina
+			//freeParkingPlaces--;
+			freeParkingPlaces = (int) sub(freeParkingPlaces, 1);
+			
+			//totalCars++;
+			totalCars = (int) this.add(totalCars, 1);
 			Simulator.Cars.setText("" + totalCars);
-			this.send(freeParkingPlaces, this.average(totalCars, hoursElapsed));
+			
+			this.send(freeParkingPlaces, average(totalCars, hoursElapsed));
 		}
 		
 		try {
